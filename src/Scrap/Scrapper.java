@@ -18,12 +18,15 @@ public class Scrapper {
             e.printStackTrace();
         }
 
-        System.out.println(doc.title());
-
         Elements names = doc.getElementsByTag("a");
+        //Elements names = doc.select("li.item.folder");
+        //System.out.println( names.first().text() );
 
         for (Element name : names) {
-            System.out.println(name.text());
+            //System.out.println( name.text() );
+
+            parseData movie = new parseData(name.text());
+            System.out.println("Name : " + movie.getName());
         }
 
     }
